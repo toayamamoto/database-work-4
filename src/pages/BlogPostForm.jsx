@@ -1,33 +1,31 @@
-// components/BlogPostForm.jsx
 import React, { useState } from "react";
 import axios from "axios";
 
 const BlogPostForm = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [userId, setUserId] = useState(""); // 追加
+  const [userId, setUserId] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // サーバーサイドのエンドポイントに合わせて変更
       const apiUrl = "http://localhost:3002/blog_posts";
 
       const blogData = {
         title,
         content,
-        user_id: userId, // 手動で入力された user_id を使用
+        user_id: userId, 
       };
 
-      // データをサーバーに送信
+      
       const response = await axios.post(apiUrl, blogData);
 
       console.log(response.data);
 
       setTitle("");
       setContent("");
-      setUserId(""); // 送信後に入力欄をクリア
+      setUserId(""); 
     } catch (error) {
       console.error("ブログポストの送信中にエラーが発生しました: ", error);
     }

@@ -1,4 +1,3 @@
-// pages/UserForm.jsx
 import React, { useState } from 'react';
 import './UserForm.css';
 
@@ -16,7 +15,6 @@ function UserForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // フォームのデータを使った処理をここに追加
     console.log('Name:', name);
     console.log('Email:', email);
   };

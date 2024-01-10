@@ -1,4 +1,3 @@
-// src/pages/SearchPage.jsx
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -8,10 +7,8 @@ const SearchPage = () => {
 
   const handleSearch = async () => {
     try {
-      // URL にクエリパラメータとしてユーザー ID を追加
-      //const apiUrl = `http://localhost:3001/blog_posts`;
-      const userIdValue = "aa"; // 例: const userIdValue = "123";
 
+      const userIdValue = "aa"; 
       const apiUrl = `http://localhost:3002/blog_posts?user_id=${userIdValue}`;
       const response = await axios.get(apiUrl);
 

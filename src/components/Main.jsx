@@ -1,10 +1,8 @@
-// components/Main.jsx
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import BlogPostForm from '../pages/BlogPostForm';
 import UserForm from '../pages/UserForm';
-import SearchPage from '../pages/SearchPage'; // Import the new SearchPage component
-
+import SearchPage from '../pages/SearchPage'; 
 function Main() {
   return (
     <main>
