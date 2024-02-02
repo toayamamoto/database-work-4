@@ -9,12 +9,10 @@ const SearchPage = () => {
     try {
       const apiUrl = `http://localhost:3001/blog_posts?user_id=a`;
       const response = await axios.get(apiUrl);
-  
-      // エラーレスポンスが返された場合
+
       if (response.data.error) {
         console.error("ブログの検索中にエラーが発生しました: ", response.data.error);
       } else {
-        // エラーレスポンスがない場合、ブログデータをセット
         setBlogData(response.data);
       }
     } catch (error) {

@@ -22,21 +22,16 @@ const BlogPostForm = () => {
 
       const response = await axios.post(apiUrl, blogData);
 
-      // サーバーからの応答が成功の場合
       setSuccessMessage(response.data.message);
 
-      // エラーメッセージをリセット
       setErrorMessage("");
 
-      // 入力欄をクリア
       setTitle("");
       setContent("");
       setUserId("");
     } catch (error) {
-      // エラーがある場合、エラーメッセージを設定
       setErrorMessage("UserIDが不正です.UserIDが正しいか確認するか,User Formよりユーザー登録してください.");
       
-      // 成功メッセージをリセット
       setSuccessMessage("");
     }
   };

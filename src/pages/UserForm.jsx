@@ -19,26 +19,19 @@ function UserForm() {
     event.preventDefault();
 
     try {
-      // サーバーサイドのエンドポイントにデータを送信
       const response = await axios.post("http://localhost:3001/users", { user_id: name, email: email });
 
-      // サーバーからの応答をログに表示
       console.log(response.data);
 
-      // サーバーからの応答が成功の場合
       setSuccessMessage(response.data.message);
 
-      // エラーメッセージをリセット
       setErrorMessage('');
-      
-      // 入力欄をクリア
+
       setName('');
       setEmail('');
     } catch (error) {
-      // エラーがある場合、エラーメッセージを設定
       setErrorMessage(error.response.data.error);
 
-      // 成功メッセージをリセット
       setSuccessMessage('');
     }
   };

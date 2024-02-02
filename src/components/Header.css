@@ -11,12 +11,12 @@
   .title {
     font-size: 2rem;
     text-align: center;
-    white-space: nowrap; /* タイトルを一行にするスタイルを追加 */
+    white-space: nowrap; 
   }
   
   
   .navbar {
-    width: 100%; /* 幅を100%に変更 */
+    width: 100%; 
     margin-top: 1.5rem;
   }
   

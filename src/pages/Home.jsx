@@ -1,4 +1,3 @@
-// Home.js
 import React from 'react';
 
 const Home = () => {
@@ -14,7 +13,6 @@ const Home = () => {
   );
 };
 
-// CSS
 
 
 const containerStyle = {
