@@ -3,13 +3,16 @@ import { Routes, Route } from 'react-router-dom';
 import BlogPostForm from '../pages/BlogPostForm';
 import UserForm from '../pages/UserForm';
 import SearchPage from '../pages/SearchPage'; 
+import Home from '../pages/Home'; 
+
 function Main() {
   return (
     <main>
       <Routes>
+      <Route path="/home" element={<Home />} />
         <Route path="/blogpostform" element={<BlogPostForm />} />
-        <Route path="/userform" element={<UserForm />} />
-        <Route path="/search" element={<SearchPage />} /> {/* Add the new route for SearchPage */}
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/UserForm" element={<UserForm />} />
       </Routes>
     </main>
   );

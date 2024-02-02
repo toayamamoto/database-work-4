@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="content has-text-centered">
-        <p>Footer content goes here.</p>
+        <p>データベース課題制作</p>
       </div>
     </footer>
   );

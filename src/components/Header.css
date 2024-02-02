@@ -1,0 +1,44 @@
+
+.hero.is-primary {
+    background-color: #18a4c751; 
+    color: rgb(8, 1, 4); 
+  }
+  
+  .hero-body {
+    padding: 2rem 0; 
+  }
+  
+  .title {
+    font-size: 2rem;
+    text-align: center;
+    white-space: nowrap; /* タイトルを一行にするスタイルを追加 */
+  }
+  
+  
+  .navbar {
+    width: 100%; /* 幅を100%に変更 */
+    margin-top: 1.5rem;
+  }
+  
+  
+  .navbar-item {
+    margin-right: 1rem; 
+    color: rgb(9, 1, 1); 
+    text-decoration: none; 
+  }
+
+  .navbar-start {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-bottom: 0;
+
+  }
+  
+  
+  .navbar-item:hover {
+    color: #d81985;
+  }
+
+  
+  

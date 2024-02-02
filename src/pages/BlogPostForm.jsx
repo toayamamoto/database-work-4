@@ -5,52 +5,80 @@ const BlogPostForm = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [userId, setUserId] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const apiUrl = "http://localhost:3002/blog_posts";
+      const apiUrl = "http://localhost:3001/blog_posts";
 
       const blogData = {
         title,
         content,
-        user_id: userId, 
+        user_id: userId,
       };
 
-      
       const response = await axios.post(apiUrl, blogData);
 
-      console.log(response.data);
+      // サーバーからの応答が成功の場合
+      setSuccessMessage(response.data.message);
 
+      // エラーメッセージをリセット
+      setErrorMessage("");
+
+      // 入力欄をクリア
       setTitle("");
       setContent("");
-      setUserId(""); 
+      setUserId("");
     } catch (error) {
-      console.error("ブログポストの送信中にエラーが発生しました: ", error);
+      // エラーがある場合、エラーメッセージを設定
+      setErrorMessage("UserIDが不正です.UserIDが正しいか確認するか,User Formよりユーザー登録してください.");
+      
+      // 成功メッセージをリセット
+      setSuccessMessage("");
     }
+  };
+
+  const inputStyle = {
+    width: "90%",
+    padding: "30px",
+    marginBottom: "10px",
+  };
+
+  const buttonStyle = {
+    backgroundColor: "#3498db",
+    color: "#fff",
+    padding: "10px",
+    cursor: "pointer",
+    border: "none",
+    borderRadius: "5px",
   };
 
   return (
     <div>
-      <h2>ブログ投稿フォーム</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 style={{ fontSize: "2em", color: "#3498db", marginBottom: "30px" }}>ブログ投稿フォーム</h2>
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column" }}>
         <label>
           タイトル:
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} style={inputStyle} />
         </label>
         <br />
         <label>
           コンテンツ:
-          <textarea value={content} onChange={(e) => setContent(e.target.value)} />
+          <textarea value={content} onChange={(e) => setContent(e.target.value)} style={inputStyle} />
         </label>
         <br />
         <label>
           User ID:
-          <input type="text" value={userId} onChange={(e) => setUserId(e.target.value)} />
+          <input type="text" value={userId} onChange={(e) => setUserId(e.target.value)} style={inputStyle} />
         </label>
         <br />
-        <button type="submit">投稿する</button>
+        <button type="submit" style={buttonStyle}>投稿する</button>
+        
+        {successMessage && <p style={{ color: 'green', marginTop: '10px' }}>{successMessage}</p>}
+        {errorMessage && <p style={{ color: 'red', marginTop: '10px' }}>{errorMessage}</p>}
       </form>
     </div>
   );
